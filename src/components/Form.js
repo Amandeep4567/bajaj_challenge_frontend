@@ -23,7 +23,10 @@ const Form = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/bfhl", parsedData);
+      const res = await axios.post(
+        "https://bajaj-finserv-backend-blue.vercel.app/bfhl",
+        parsedData
+      );
       setResponse(res.data);
     } catch (err) {
       setError("Failed to fetch data from backend. Please check the server.");
@@ -31,7 +34,7 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="form">
       <h2>BFHL Data Processor</h2>
       <form onSubmit={handleSubmit}>
         <textarea
